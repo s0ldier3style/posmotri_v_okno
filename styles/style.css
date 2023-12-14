@@ -13,7 +13,7 @@ html {
   block-size: 100%;
   margin: auto;
   color: #fff;
-  font-family: "Fira Sans Condensed", sans-serif;
+  font-family: "Fira Sans Condensed", Arial, sans-serif;
   font-size: 18px;
   background-color: #1b1919;
   overflow: hidden;
@@ -69,7 +69,7 @@ ol {
 .search-form {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 40px;
   height: 54px;
 }
@@ -80,7 +80,7 @@ ol {
 
 .search-form__fieldset-title {
   color: #fff;
-  font-family: Fira Sans Condensed;
+  font-family: "Fira Sans Condensed", Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -93,14 +93,19 @@ ol {
   flex-direction: row;
 }
 
+.search-form__label:has(.search-form__pseudo-checkbox):hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .search-form__label-text {
   color: #fff;
-  font-family: Fira Sans Condensed;
+  font-family: "Fira Sans Condensed", Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  padding-left: 5px;
+  padding-left: 7px;
 }
 
 .visually-hidden {
@@ -131,7 +136,7 @@ ol {
 
 .search-form__textfield::placeholder {
   color: rgba(255, 255, 255, 0.7);
-  font-family: Fira Sans Condensed, Arial, sans-serif;
+  font-family: "Fira Sans Condensed", Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -139,17 +144,31 @@ ol {
 }
 
 .search-form__checkbox-list {
+  width: 212px;
   display: flex;
   flex-direction: row;
   gap: 15px;
+  padding-top: 2px;
+  padding-left: 3px;
 }
 
 .search-form__pseudo-checkbox {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   vertical-align: middle;
-  border: 1px solid white;
+  border: 1px solid #000;
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.search-form__checkbox[type="checkbox"]:checked
+  + .search-form__pseudo-checkbox {
+  background: #fff;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #000;
+  outline: 1px solid #fff;
+  outline-offset: 1px;
 }
 
 .button {
@@ -158,7 +177,7 @@ ol {
   background-color: transparent;
   color: #fff;
   text-align: center;
-  font-family: Fira Sans Condensed;
+  font-family: "Fira Sans Condensed", Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -188,10 +207,6 @@ ol {
   background: #fff;
   background-size: contain;
   background-repeat: no-repeat;
-}
-
-.search-form__pseudo-checkbox:checked {
-  background: #fff;
 }
 
 .button:hover {
@@ -240,17 +255,29 @@ ol {
 .content__list {
   position: relative;
   overflow: hidden auto;
-  padding-top: 22px;
+  margin-top: 22px;
+  width: 399px;
+  height: 398px;
+}
+
+.content__list-item {
+  width: 394px;
+  padding: 1.5px 2.5px 0px 2.5px;
 }
 
 .content__list::-webkit-scrollbar {
   width: 3px;
   scroll-behavior: smooth;
+  margin-left: 15px;
 }
 
 .content__list::-webkit-scrollbar-thumb {
   background: rgb(0, 0, 0);
   border-radius: 4.5px;
+}
+
+.content__list-item {
+  width: 394px;
 }
 
 .content__list-item:not(:last-child) {
@@ -261,7 +288,6 @@ ol {
   display: block;
   text-decoration: none;
   color: #fff;
-  margin: 0px 2px 0px 2px;
 }
 
 .content__video-card {
@@ -280,32 +306,35 @@ ol {
 .content__video-card-title {
   color: #fff;
   font-family: Oswald, Arial, sans-serif;
-  font-size: 30px;
+  font-size: 26px;
   font-style: normal;
   font-weight: 700;
   line-height: 100%; /* 30px */
   text-transform: uppercase;
   padding: 0;
+  width: 198px;
+  padding-top: 1px;
+  letter-spacing: 2px;
 }
 
 .content__video-card-description {
   color: #fff;
-  font-family: Fira Sans Condensed, Arial, sans-serif;
-  font-size: 18px;
+  font-family: "Fira Sans Condensed", Arial, sans-serif;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 16.2px; /* 90% */
 }
 
 .content__video-card-thumbnail {
-  width: 194px;
+  min-width: 194px;
   height: 103px;
   object-fit: cover;
   object-position: center;
 }
 
 .more-button {
-  width: 392px;
+  width: 395px;
   height: 34px;
 }
 
@@ -315,6 +344,11 @@ ol {
 
 .content__card-link_current:focus-visible {
   outline: 1px solid #fff;
+}
+
+.content__card-link_current,
+.content__card-link_current:active {
+  background: #545050;
 }
 
 .content__video-card-description-container:active {
